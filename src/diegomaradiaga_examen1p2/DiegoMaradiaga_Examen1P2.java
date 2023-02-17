@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
 
     ArrayList <PC> lista = new ArrayList();
-    
     public DiegoMaradiaga_Examen1P2() {
         initComponents();
     }
@@ -40,6 +39,9 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         EliminarPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        Eliminar = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         Laptop = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
@@ -223,15 +225,37 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
 
         EliminarPanel.setBackground(new java.awt.Color(102, 102, 102));
 
+        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EliminarPanelLayout = new javax.swing.GroupLayout(EliminarPanel);
         EliminarPanel.setLayout(EliminarPanelLayout);
         EliminarPanelLayout.setHorizontalGroup(
             EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGroup(EliminarPanelLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Eliminar)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         EliminarPanelLayout.setVerticalGroup(
             EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
+            .addGroup(EliminarPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Eliminar)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         Listar.addTab("Eliminar", EliminarPanel);
@@ -471,6 +495,11 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 btnCRUD1MouseClicked(evt);
             }
         });
+        btnCRUD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCRUD1ActionPerformed(evt);
+            }
+        });
         Principal.add(btnCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 140, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/360_F_461332724_06x1KjY98sZHT4DVzBVoLx2fMrwFTSzk (1).jpg"))); // NOI18N
@@ -518,6 +547,9 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         
         lista.add(new PClaptop(marca, pantalla, tg, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
+        
+        CrudPC.setLocationRelativeTo(null);
+        CrudPC.setVisible(true);
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void Aceptar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aceptar2ActionPerformed
@@ -548,11 +580,23 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTextArea1.setText(listar);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public void guardar() {
-        String ip, mascara, host;
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        String listar = "";
+        for (Object t : lista) {
+            if (t instanceof PC){
+                listar += ""+lista.indexOf(t)+") "+t+"";
+            }
+        }
+        jTextArea1.setText(listar);
+        
+        int indexD = Integer.parseInt(JOptionPane.showInputDialog(null, "Que computadora desea eliminar? "));
+        lista.remove(indexD);
+    }//GEN-LAST:event_EliminarActionPerformed
 
-    }
-    
+    private void btnCRUD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCRUD1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCRUD1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -590,6 +634,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JButton Aceptar2;
     private javax.swing.JPanel AgregarPanel;
     private javax.swing.JFrame CrudPC;
+    private javax.swing.JButton Eliminar;
     private javax.swing.JPanel EliminarPanel;
     private javax.swing.JFrame Escritorio;
     private javax.swing.JLabel Ip;
@@ -625,6 +670,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTFalmacenamiento;
     private javax.swing.JTextField jTFhost;
     private javax.swing.JTextField jTFip;
@@ -634,6 +680,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JTextField jTFram;
     private javax.swing.JTextField jTFtipo;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JRadioButton laptop;
     private javax.swing.JLabel mascaraRed;
     private javax.swing.JLabel tipo;
