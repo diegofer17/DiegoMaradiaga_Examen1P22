@@ -36,6 +36,9 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTFmascara = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         ListarPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         EliminarPanel = new javax.swing.JPanel();
         buttonGroup1 = new javax.swing.ButtonGroup();
         Laptop = new javax.swing.JFrame();
@@ -181,15 +184,39 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
 
         ListarPanel.setBackground(new java.awt.Color(153, 153, 153));
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton2.setText("Listar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ListarPanelLayout = new javax.swing.GroupLayout(ListarPanel);
         ListarPanel.setLayout(ListarPanelLayout);
         ListarPanelLayout.setHorizontalGroup(
             ListarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGroup(ListarPanelLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(ListarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         ListarPanelLayout.setVerticalGroup(
             ListarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
+            .addGroup(ListarPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(26, 26, 26))
         );
 
         Listar.addTab("Listar", ListarPanel);
@@ -238,12 +265,10 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Definicion de pantalla: ");
 
-        buttonGroup2.add(jBTrue);
         jBTrue.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jBTrue.setForeground(new java.awt.Color(0, 0, 0));
         jBTrue.setText("Sí");
 
-        buttonGroup2.add(jBFalse);
         jBFalse.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jBFalse.setForeground(new java.awt.Color(0, 0, 0));
         jBFalse.setText("No");
@@ -302,7 +327,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Aceptar))
-                .addGap(64, 64, 64))
+                .addGap(23, 23, 23))
         );
 
         Laptop.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 340));
@@ -325,12 +350,16 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("RGB_?");
 
-        buttonGroup3.add(jBFalsee);
         jBFalsee.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jBFalsee.setForeground(new java.awt.Color(0, 0, 0));
         jBFalsee.setText("No");
 
-        Aceptar2.setText("Aceptar");
+        Aceptar2.setText("Guardar");
+        Aceptar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Aceptar2ActionPerformed(evt);
+            }
+        });
 
         jTFram.setBackground(new java.awt.Color(255, 255, 255));
         jTFram.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -460,29 +489,70 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCRUD1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        if (escritorio.isSelected()){
+            Escritorio.setLocationRelativeTo(null);
+            Escritorio.setVisible(true);
+            Escritorio.setSize(250, 348);
+            CrudPC.dispose();
+        } else if (laptop.isSelected()){
+            Laptop.setLocationRelativeTo(null);
+            Laptop.setVisible(true);
+            Laptop.setSize(268, 429);
+            CrudPC.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         String Ip = jTFip.getText();
         String Mascara = jTFmascara.getText();
         String Host = jTFhost.getText();
-        if (escritorio.isSelected()){
-            
-        } else if (laptop.isSelected()){
-            
-        }
+        
         String marca = jTFmarca.getText();
         String pantalla = jTFpantalla.getText();
-        buttonGroup2.getSelection();
+        boolean tg= true;
+        if (jBTrue.isSelected()){
+            tg = true;
+        } else if (jBFalse.isSelected()){
+            tg = false;
+        }
         
-        lista.add(new PClaptop(marca, pantalla, true, Ip, Mascara, Host));
+        lista.add(new PClaptop(marca, pantalla, tg, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
     }//GEN-LAST:event_AceptarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void Aceptar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aceptar2ActionPerformed
+        String Ip = jTFip.getText();
+        String Mascara = jTFmascara.getText();
+        String Host = jTFhost.getText();
+        
+        int ram = Integer.parseInt(jTFram.getText());
+        int almacenamiento = Integer.parseInt(jTFalmacenamiento.getText());
+        String tipo = jTFtipo.getText();
+        boolean Rgb= true;
+        if (jBTruee.isSelected()){
+            Rgb = true;
+        } else if (jBFalsee.isSelected()){
+            Rgb = false;
+        }
+        lista.add(new PCescritorio(ram, almacenamiento, tipo, Rgb, Ip, Mascara, Host));
+        JOptionPane.showMessageDialog(null, "Agregado con exito");
+    }//GEN-LAST:event_Aceptar2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String listar = "";
+        for (Object t : lista) {
+            if (t instanceof PC){
+                listar += ""+lista.indexOf(t)+") "+t+"";
+            }
+        }
+        jTextArea1.setText(listar);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void guardar() {
+        String ip, mascara, host;
+
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -539,6 +609,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jBTrue;
     private javax.swing.JRadioButton jBTruee;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -553,6 +624,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTFalmacenamiento;
     private javax.swing.JTextField jTFhost;
     private javax.swing.JTextField jTFip;
@@ -561,6 +633,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JTextField jTFpantalla;
     private javax.swing.JTextField jTFram;
     private javax.swing.JTextField jTFtipo;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JRadioButton laptop;
     private javax.swing.JLabel mascaraRed;
     private javax.swing.JLabel tipo;
