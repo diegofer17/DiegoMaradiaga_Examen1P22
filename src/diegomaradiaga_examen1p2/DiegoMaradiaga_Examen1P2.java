@@ -1,14 +1,18 @@
 package diegomaradiaga_examen1p2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 
 public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
 
-    ArrayList <PC> lista = new ArrayList();
+    static ArrayList <PC> lista = new ArrayList();
+    static Scanner leer = new Scanner(System.in);
+    
     public DiegoMaradiaga_Examen1P2() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -71,7 +75,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTFtipo = new javax.swing.JTextField();
         buttonGroup3 = new javax.swing.ButtonGroup();
         Principal = new javax.swing.JPanel();
-        btnCRUD = new javax.swing.JButton();
+        btnSimulacion = new javax.swing.JButton();
         btnCRUD1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -482,10 +486,15 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         Principal.setBackground(new java.awt.Color(51, 51, 51));
         Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCRUD.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        btnCRUD.setForeground(new java.awt.Color(98, 189, 255));
-        btnCRUD.setText("Simulacion PC");
-        Principal.add(btnCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 140, 50));
+        btnSimulacion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        btnSimulacion.setForeground(new java.awt.Color(98, 189, 255));
+        btnSimulacion.setText("Simulacion PC");
+        btnSimulacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSimulacionMouseClicked(evt);
+            }
+        });
+        Principal.add(btnSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 140, 50));
 
         btnCRUD1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         btnCRUD1.setForeground(new java.awt.Color(98, 189, 255));
@@ -521,7 +530,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         if (escritorio.isSelected()){
             Escritorio.setLocationRelativeTo(null);
             Escritorio.setVisible(true);
-            Escritorio.setSize(250, 348);
+            Escritorio.setSize(250, 340);
             CrudPC.dispose();
         } else if (laptop.isSelected()){
             Laptop.setLocationRelativeTo(null);
@@ -550,6 +559,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         
         CrudPC.setLocationRelativeTo(null);
         CrudPC.setVisible(true);
+        CrudPC.setSize(499, 478);
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void Aceptar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aceptar2ActionPerformed
@@ -568,6 +578,9 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         }
         lista.add(new PCescritorio(ram, almacenamiento, tipo, Rgb, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
+        CrudPC.setLocationRelativeTo(null);
+        CrudPC.setVisible(true);
+        CrudPC.setSize(499, 478);
     }//GEN-LAST:event_Aceptar2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -596,6 +609,34 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private void btnCRUD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCRUD1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCRUD1ActionPerformed
+
+    private void btnSimulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimulacionMouseClicked
+        this.setVisible(false);
+        System.out.println("Simulacion\n"
+                + "");
+        System.out.print("1. Ping\n"
+                        +"2. Show\n"
+                        +"3. Exit\n"
+                        +"Que opcion desea? ");
+        int opcion = leer.nextInt();
+        
+        switch (opcion) {
+            case 1:{
+                
+            }break;
+            case 2:{
+                
+            }break;
+            case 3:{
+                this.setVisible(true);
+            }break;
+            default:{
+                System.out.println("Opcion no valida");
+            }break;
+                
+        }
+        
+    }//GEN-LAST:event_btnSimulacionMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -642,8 +683,8 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Listar;
     private javax.swing.JPanel ListarPanel;
     private javax.swing.JPanel Principal;
-    private javax.swing.JButton btnCRUD;
     private javax.swing.JButton btnCRUD1;
+    private javax.swing.JButton btnSimulacion;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
