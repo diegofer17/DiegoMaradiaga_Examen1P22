@@ -691,6 +691,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 + "3. Exit\n"
                 + "Ingrese su opcion: ");
         int opcion = leer.nextInt();
+        int index = 0;
         
         switch (opcion) {
             case 1:
@@ -699,6 +700,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 
                 for (int t = 0; t < lista.size(); t++) {
                     if (((PC)lista.get(t)).getIp().contains(ping1)){
+                    index = lista.indexOf(t);
                     System.out.println("Muy bien, la computadora si se encuentra");
                 }else{
                     System.out.println("La computadora no se encuentra");
@@ -731,7 +733,37 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 
                 for (int i = 0; i < binario1.length(); i++) {
                     if(i<6){
+                        String host = "";
+                            String ip = "";
                         if(binario1.charAt(i)==binario2.charAt(i)){
+                            
+                            for (int t = 0; t < lista.size(); t++) {
+                                if (((PC) lista.get(t)).getIp().contains(ping1)) {
+                                    host = ((PC) lista.get(t)).getHost();
+                                    ip = ((PC) lista.get(t)).getIp();
+                                }
+                            }
+                            System.out.print(host+"#ping_"+ip+"\n"
+                                    + "Pinging to "+ip+" with 32 bits of data\n"
+                                            + "Reply from "+ip+": bytes=32 time=37ms TTL=46\n"
+                                            + "Reply from "+ip+": bytes=32 time=37ms TTL=46\n"
+                                            + "Reply from "+ip+": bytes=32 time=37ms TTL=46\n"
+                                            + "Reply from "+ip+": bytes=32 time=37ms TTL=46\n"
+                                                    + "\n"
+                                            + "Ping statistics for "+ip+": \n"
+                                                    + "Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)\n"
+                                                    + ""+host+"#");
+                        }else{
+                            System.out.print(host+"#ping_"+ip+"\n"
+                                    + "Pinging to "+ip+" with 32 bits of data\n"
+                                            + "Request time out\n"
+                                            + "Request time out\n"
+                                            + "Request time out\n"
+                                            + "Request time out\n"
+                                                    + "\n"
+                                            + "Ping statistics for "+ip+": \n"
+                                                    + "Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)\n"
+                                                    + ""+host+"#");
                         }
                     }
                 }
@@ -741,7 +773,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 System.out.println("Computadora en uso");
                 System.out.println("");
                 
-                
+                System.out.println(lista.get(index));
             break;
             case 3:{
                 this.setVisible(true);
