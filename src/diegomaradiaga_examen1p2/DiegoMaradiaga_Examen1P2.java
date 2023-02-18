@@ -45,6 +45,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         EliminarPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        ListarE = new javax.swing.JButton();
         Eliminar = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         Laptop = new javax.swing.JFrame();
@@ -234,6 +235,13 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
+        ListarE.setText("Listar");
+        ListarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarEActionPerformed(evt);
+            }
+        });
+
         Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,8 +255,11 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
             EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EliminarPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Eliminar)
+                .addGroup(EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(EliminarPanelLayout.createSequentialGroup()
+                        .addComponent(ListarE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Eliminar))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
@@ -258,7 +269,9 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Eliminar)
+                .addGroup(EliminarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ListarE)
+                    .addComponent(Eliminar))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -489,11 +502,6 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         btnSimulacion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         btnSimulacion.setForeground(new java.awt.Color(98, 189, 255));
         btnSimulacion.setText("Simulacion PC");
-        btnSimulacion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSimulacionMouseClicked(evt);
-            }
-        });
         Principal.add(btnSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 140, 50));
 
         btnCRUD1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -557,6 +565,14 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         lista.add(new PClaptop(marca, pantalla, tg, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
         
+        String limpiar="";
+        jTFip.setText("");
+        jTFmascara.setText("");
+        jTFhost.setText("");
+        
+        jTFmarca.setText("");
+        jTFpantalla.setText("");
+        
         CrudPC.setLocationRelativeTo(null);
         CrudPC.setVisible(true);
         CrudPC.setSize(499, 478);
@@ -578,6 +594,15 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         }
         lista.add(new PCescritorio(ram, almacenamiento, tipo, Rgb, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
+        
+        jTFip.setText("");
+        jTFmascara.setText("");
+        jTFhost.setText("");
+        
+        jTFram.setText("");
+        jTFalmacenamiento.setText("");
+        jTFtipo.setText("");
+        
         CrudPC.setLocationRelativeTo(null);
         CrudPC.setVisible(true);
         CrudPC.setSize(499, 478);
@@ -593,50 +618,24 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTextArea1.setText(listar);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+    private void ListarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarEActionPerformed
         String listar = "";
         for (Object t : lista) {
             if (t instanceof PC){
                 listar += ""+lista.indexOf(t)+") "+t+"";
             }
         }
-        jTextArea1.setText(listar);
-        
-        int indexD = Integer.parseInt(JOptionPane.showInputDialog(null, "Que computadora desea eliminar? "));
-        lista.remove(indexD);
-    }//GEN-LAST:event_EliminarActionPerformed
+        jTextArea2.setText(listar);
+    }//GEN-LAST:event_ListarEActionPerformed
 
     private void btnCRUD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCRUD1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCRUD1ActionPerformed
 
-    private void btnSimulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimulacionMouseClicked
-        this.setVisible(false);
-        System.out.println("Simulacion\n"
-                + "");
-        System.out.print("1. Ping\n"
-                        +"2. Show\n"
-                        +"3. Exit\n"
-                        +"Que opcion desea? ");
-        int opcion = leer.nextInt();
-        
-        switch (opcion) {
-            case 1:{
-                
-            }break;
-            case 2:{
-                
-            }break;
-            case 3:{
-                this.setVisible(true);
-            }break;
-            default:{
-                System.out.println("Opcion no valida");
-            }break;
-                
-        }
-        
-    }//GEN-LAST:event_btnSimulacionMouseClicked
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        int indexD = Integer.parseInt(JOptionPane.showInputDialog(null, "Que computadora desea eliminar? "));
+        lista.remove(indexD);
+    }//GEN-LAST:event_EliminarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -681,6 +680,7 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JLabel Ip;
     private javax.swing.JFrame Laptop;
     private javax.swing.JTabbedPane Listar;
+    private javax.swing.JButton ListarE;
     private javax.swing.JPanel ListarPanel;
     private javax.swing.JPanel Principal;
     private javax.swing.JButton btnCRUD1;
