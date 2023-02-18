@@ -43,7 +43,7 @@ public class PC {
     public String toString() {
         return "PC{ Host: " + host + "\n "
                  + "IP: " + ip + "\n "
-                 + "Mascara: " + mascara +'}';
+                 + "Mascara: " + mascara +"\n";
     }
     
     

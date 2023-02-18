@@ -38,6 +38,8 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         jTFip = new javax.swing.JTextField();
         jTFmascara = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         ListarPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -138,6 +140,21 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("R");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel12.setText("Menu");
+
         javax.swing.GroupLayout AgregarPanelLayout = new javax.swing.GroupLayout(AgregarPanel);
         AgregarPanel.setLayout(AgregarPanelLayout);
         AgregarPanelLayout.setHorizontalGroup(
@@ -152,15 +169,20 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(AgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTFhost, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFip, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFmascara, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(AgregarPanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(laptop, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(AgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(AgregarPanelLayout.createSequentialGroup()
+                                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(laptop, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jTFip, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFmascara, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(AgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jButton1))))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         AgregarPanelLayout.setVerticalGroup(
@@ -178,13 +200,17 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
                 .addGroup(AgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTFhost, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(host1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(escritorio)
                     .addComponent(laptop)
                     .addComponent(jButton1))
-                .addGap(24, 24, 24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AgregarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel12))
+                .addContainerGap())
         );
 
         Listar.addTab("Agregar", AgregarPanel);
@@ -502,6 +528,16 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         btnSimulacion.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         btnSimulacion.setForeground(new java.awt.Color(98, 189, 255));
         btnSimulacion.setText("Simulacion PC");
+        btnSimulacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSimulacionMouseClicked(evt);
+            }
+        });
+        btnSimulacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimulacionActionPerformed(evt);
+            }
+        });
         Principal.add(btnSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 140, 50));
 
         btnCRUD1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
@@ -564,11 +600,14 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         
         lista.add(new PClaptop(marca, pantalla, tg, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
+        Laptop.dispose();
         
         String limpiar="";
         jTFip.setText("");
         jTFmascara.setText("");
         jTFhost.setText("");
+        buttonGroup1.clearSelection();
+        buttonGroup2.clearSelection();
         
         jTFmarca.setText("");
         jTFpantalla.setText("");
@@ -594,11 +633,13 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         }
         lista.add(new PCescritorio(ram, almacenamiento, tipo, Rgb, Ip, Mascara, Host));
         JOptionPane.showMessageDialog(null, "Agregado con exito");
+        Escritorio.dispose();
         
         jTFip.setText("");
         jTFmascara.setText("");
         jTFhost.setText("");
-        
+        buttonGroup1.clearSelection();
+        buttonGroup3.clearSelection();
         jTFram.setText("");
         jTFalmacenamiento.setText("");
         jTFtipo.setText("");
@@ -637,6 +678,94 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
         lista.remove(indexD);
     }//GEN-LAST:event_EliminarActionPerformed
 
+    private void btnSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimulacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSimulacionActionPerformed
+
+    private void btnSimulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimulacionMouseClicked
+        this.dispose();
+        System.out.println("Simulacion\n"
+                + "\n");
+        System.out.print("1. Ping\n"
+                + "2. Show\n"
+                + "3. Exit\n"
+                + "Ingrese su opcion: ");
+        int opcion = leer.nextInt();
+        
+        switch (opcion) {
+            case 1:
+                System.out.print("Ingrese el ping de la computadora que usara: ");
+                String ping1 = leer.next();
+                
+                for (int t = 0; t < lista.size(); t++) {
+                    if (((PC)lista.get(t)).getIp().contains(ping1)){
+                    System.out.println("Muy bien, la computadora si se encuentra");
+                }else{
+                    System.out.println("La computadora no se encuentra");
+                }
+                }//Fin for
+                
+                System.out.print("Ingrese el ping de la computadora con la que desea enlazarse: ");
+                String ping2 = leer.next();
+                
+                String [] array1 = ping1.split(".");
+                String [] array2 = ping2.split(".");
+                
+                boolean validacion;
+                int decimal1=0;
+                int decimal2=0;
+                for (int i = 0; i < array1.length-1; i++) {
+                        if(i<array1.length-2){
+                            if(array1[i]==array2[i]){
+                            validacion = true;
+                            }else{
+                                System.out.println("No");
+                            }
+                        }else{
+                            decimal1 = Integer.parseInt(array1[i]);
+                            decimal2 = Integer.parseInt(array2[i]);
+                        }                      
+                }
+                String binario1 = String.valueOf(DaB(decimal1));
+                String binario2 = String.valueOf(DaB(decimal2));
+                
+                for (int i = 0; i < binario1.length(); i++) {
+                    if(i<6){
+                        if(binario1.charAt(i)==binario2.charAt(i)){
+                        }
+                    }
+                }
+                
+            break;
+            case 2:
+                System.out.println("Computadora en uso");
+                System.out.println("");
+                
+                
+            break;
+            case 3:{
+                this.setVisible(true);
+            }break;
+            default:{
+                System.out.println("Opcion no valida");
+            }
+        }
+    }//GEN-LAST:event_btnSimulacionMouseClicked
+    
+    static int DaB (int num){
+        if(num<2) return num;
+        else return num%2+ DaB(num/2)*10;
+    }
+    
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        this.setVisible(true);
+        CrudPC.dispose();
+    }//GEN-LAST:event_jButton3MouseClicked
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -696,9 +825,11 @@ public class DiegoMaradiaga_Examen1P2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jBTruee;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
